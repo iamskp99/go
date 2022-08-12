@@ -8,7 +8,14 @@ import (
 type hotdog int
 
 func (m hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Welcome !")
+	typeOfRequest := r.Method
+	if typeOfRequest == "GET" {
+		fmt.Fprintln(w, "Welcome Its a GET Request!")
+	}
+
+	if typeOfRequest == "POST" {
+		fmt.Fprintln(w, "Welcome Its a POST Request!")
+	}
 }
 
 func main() {
