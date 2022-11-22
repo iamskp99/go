@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+option go_package = "github.com/koddr/example-go-grpc-server/pkg/api";
+service Adder {
+    rpc Add (AddRequest) returns (AddResponse) {}
+}
+
+message AddRequest {
+    int32 x = 1;
+    int32 y = 2;
+}
+
+message AddResponse {
+    int32 result = 1;
+    UserData data = 2;
+}
+
+message TeamData{
+    string name = 1;
+    string championships = 2;
+    string points = 3;
+}
+
+message UserData{
+    string name = 1;
+    TeamData team = 2;
+}
